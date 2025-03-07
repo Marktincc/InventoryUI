@@ -1,0 +1,19 @@
+.form-floating>.form-control:focus~label::after,
+.form-floating>.form-control:not(:placeholder-shown)~label::after,
+.form-floating>.form-control-plaintext~label::after,
+.form-floating>.form-select~label::after {
+  background-color: transparent ;
+
+}
+.input-text-custom {
+  border-radius: 0 ;
+  background-color: transparent ;
+  border: none ;
+  border-bottom: 2px solid silver ;
+  
+}
+
+.input-text-custom:focus {
+  box-shadow: none ;
+  border-bottom: 2px #04D9C4 solid ;
+}

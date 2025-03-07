@@ -1,0 +1,13 @@
+/* Estilo para el NavLink */
+.nav-link:not(.active):hover {
+  color: #fff ;
+  background-color: var(--color-shark-800) 
+}
+.active{
+  background-color: var(--color-shark-800)!important;
+
+}
+.text-gray{
+  color: var(--color-shark-300) ;
+}
+
