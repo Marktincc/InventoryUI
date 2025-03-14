@@ -1,7 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import reactLogo from '@/assets/react.svg'
+import { useAuthContext } from '@/context/AuthContext';
+import './Navbar.css';
 
 export const Navbar = () => {
+  const { user, logout } = useAuthContext();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div className="container-fluid">
@@ -44,10 +54,10 @@ export const Navbar = () => {
               />
             </button>
             <ul className="dropdown-menu dropdown-menu-end">
-              <li><span className="dropdown-item-text">Usuario</span></li>
+              <li><span className="dropdown-item-text">{user?.nombre || 'Usuario'}</span></li>
               <li><hr className="dropdown-divider"/></li>
               <li>
-                <button className="dropdown-item text-danger" onClick={() => console.log('Cerrar sesión')}>
+                <button className="dropdown-item text-danger btn" onClick={handleLogout}>
                   Cerrar sesión
                 </button>
               </li>

@@ -1,0 +1,78 @@
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.login-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.login-form {
+  margin-top: 2rem;
+}
+
+.login-form .form-floating {
+  margin-bottom: 1.5rem;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin: 1.5rem 0;
+  opacity: 0.7;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.divider span {
+  margin: 0 1rem;
+}
+
+.btn-shark {
+  background-color: var(--color-shark-800);
+  border-color: var(--color-shark-800);
+  color: white;
+}
+
+.btn-shark:hover {
+  background-color: var(--color-shark-900);
+  border-color: var(--color-shark-900);
+  color: white;
+}
+
+.btn-shark:active {
+  background-color: var(--color-shark-600) !important;
+  border-color: var(--color-shark-600) !important;
+  color: white !important;
+}
+
+.btn-shark:focus-visible {
+  background-color: var(--color-shark-600) !important;
+  border-color: var(--color-shark-600) !important;
+ 
+}
+
+.btn-shark:disabled {
+  background-color: var(--color-shark-100);
+  border-color: var(--color-shark-100);
+  opacity: 0.65;
+}

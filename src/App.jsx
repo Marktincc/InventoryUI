@@ -1,52 +1,48 @@
-import { Route, Routes, Outlet } from 'react-router-dom'
-import { FloatingInput } from './components/FloatingInput';
-import { Button } from './components/Button';
-import { OffcanvasMenu } from './components/OffcanvasMenu';
-import { Navbar } from './components/Navbar';
-
-function Layout() {
-  return (
-    <>
-      <Navbar />
-      <OffcanvasMenu />
-      <div className="container-fluid mt-3">
-        <Outlet />
-      </div>
-    </>
-  )
-}
+import { Route, Routes } from 'react-router-dom';
+import { Login } from './pages/Login';
+import { Toaster } from 'sonner';
+import { AuthProvider } from './context/AuthContext';
+import { ProtectedRoute } from './components/auth/ProtectedRoute';
+import { Layout } from './components/layout/Layout';
 
 function App() {
   return (
-    <Routes>
-      <Route>
-        <Route path="/" element={<h1 className='text-secondary'>Home</h1>} />
-        <Route path="/about" element={<h1>About</h1>} />
-        <Route path="/count/*" element={<Layout />}>
-          <Route index element={
-            <Button
-              className="btn btn-primary"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasExample"
-              aria-controls="offcanvasExample"
-            />
-          } />
-          <Route path="increment" element={
-            <FloatingInput
-              id='floatingInput'
-              label='email address'
-              placeholder="name@example.com"
-              type="email"
-            />
-          } />
-          <Route path="*" element={<h1>Not Found</h1>} />
+    <AuthProvider>
+      <Toaster position="top-center" richColors closeButton />
+      <Routes>
+        {/* Rutas públicas */}
+        <Route path="/" element={<Login />} />
+        <Route path="/unauthorized" element={<h1>No tienes permisos para acceder a esta página</h1>} />
+        
+        {/* Rutas protegidas para usuarios y administradores */}
+        <Route path="/dashboard/*" element={
+          <ProtectedRoute 
+            element={<Layout />} 
+            allowedRoles={['admin', 'user']} 
+          />
+        }>
+          <Route index element={<h1>Dashboard</h1>} />
+          <Route path="inventory" element={<h1>Inventario</h1>} />
+          <Route path="reports" element={<h1>Reportes</h1>} />
         </Route>
-        <Route path="*" element={<h1>Not Found</h1>} />
-      </Route>
-    </Routes>
-  )
+        
+        {/* Rutas solo para administradores */}
+        <Route path="/admin/*" element={
+          <ProtectedRoute 
+            element={<Layout />} 
+            allowedRoles={['admin']} 
+          />
+        }>
+          <Route index element={<h1>Panel de Administración</h1>} />
+          <Route path="users" element={<h1>Gestión de Usuarios</h1>} />
+          <Route path="settings" element={<h1>Configuración del Sistema</h1>} />
+        </Route>
+        
+        {/* Ruta para capturar todas las demás */}
+        <Route path="*" element={<h1>Página no encontrada</h1>} />
+      </Routes>
+    </AuthProvider>
+  );
 }
 
-
-export default App
+export default App;
