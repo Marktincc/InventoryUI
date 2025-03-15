@@ -1,7 +1,7 @@
 import React from 'react';
 import { FloatingInput } from '@/components/common/FloatingInput';
 import { Button } from '@/components/common/Button';
-import '@/components/auth/auth.css'
+import '@/components/auth/Auth.css'
 
 export const LoginForm = ({ formData, isLoading, handleChange, handleLogin }) => {
   // Función para manejar el envío del formulario
