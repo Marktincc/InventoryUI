@@ -1,0 +1,15 @@
+.outline-none:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.border{
+border: none!important ;
+padding-left: 7px;
+border-bottom: 2px solid #c0c0c0!important;
+border-radius: 0px;
+}
+.border:focus{
+border: none !important;
+border-bottom: 2px solid var(--color-shark-800) !important;
+border-radius: 0px;
+}

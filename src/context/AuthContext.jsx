@@ -5,7 +5,10 @@ export const AuthContext = createContext(null);
 
 // Proveedor del contexto de autenticación
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem('user');
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
   
   // Verificamos si hay un usuario almacenado en localStorage al montar el componente
   useEffect(() => {

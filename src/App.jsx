@@ -4,6 +4,8 @@ import { Toaster } from 'sonner';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { Layout } from './components/layout/Layout';
+import { CategoriesPage } from './pages/CategoriesPage';
+import { UsersPage } from './pages/UsersPage';
 
 function App() {
   return (
@@ -34,7 +36,8 @@ function App() {
           />
         }>
           <Route index element={<h1>Panel de Administración</h1>} />
-          <Route path="users" element={<h1>Gestión de Usuarios</h1>} />
+          <Route path="categories" element={<CategoriesPage/>} />
+          <Route path="users" element={<UsersPage/>} />
           <Route path="settings" element={<h1>Configuración del Sistema</h1>} />
         </Route>
         

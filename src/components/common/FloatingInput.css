@@ -5,9 +5,13 @@
   background-color: transparent ;
 }
 
+.form-floating > .form-control, .form-floating > .form-control-plaintext{
+  padding: 7px;
+}
+
 .form-floating>.form-control:focus,
 .form-floating > label,.form-control{
-  padding-left: 0;
+  padding-left: 6px;
 }
 .form-floating > label{
   font-size: 18px;
@@ -22,5 +26,5 @@
 
 .input-text-custom:focus {
   box-shadow: none ;
-  border-bottom: 2px #04D9C4 solid ;
+  border-bottom: 2px var(--color-shark-800) solid ;
 }

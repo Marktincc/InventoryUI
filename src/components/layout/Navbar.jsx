@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import reactLogo from '@/assets/react.svg'
 import { useAuthContext } from '@/context/AuthContext';
 import './Navbar.css';
@@ -40,7 +40,7 @@ export const Navbar = () => {
           {/* Dropdown del usuario */}
           <div className="dropdown">
             <button 
-              className="btn btn-link p-0 border-0" 
+              className="btn btn-link p-0 border-0 dropdown-toggle" 
               type="button" 
               data-bs-toggle="dropdown" 
               aria-expanded="false"
