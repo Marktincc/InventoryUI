@@ -6,6 +6,7 @@ import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { Layout } from './components/layout/Layout';
 import { CategoriesPage } from './pages/CategoriesPage';
 import { UsersPage } from './pages/UsersPage';
+import { SupplierPage } from './pages/SupplierPage';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route index element={<h1>Panel de Administración</h1>} />
           <Route path="categories" element={<CategoriesPage/>} />
           <Route path="users" element={<UsersPage/>} />
+          <Route path="suppliers" element={<SupplierPage/>} />
           <Route path="settings" element={<h1>Configuración del Sistema</h1>} />
         </Route>
         

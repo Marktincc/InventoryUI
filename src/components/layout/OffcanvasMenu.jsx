@@ -70,7 +70,7 @@ export const OffcanvasMenu = () => {
     },
     {
       label: 'Proveedores',
-      path: '/admin/providers',
+      path: '/admin/suppliers',
       icon: 'bi-shop',},
     {
       label: 'Configuración',
